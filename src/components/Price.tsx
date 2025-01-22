@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 type Props = {
   price: number;
-  id: number;
+  id: string;
   options?: { title: string; additionalPrice: number }[];
 };
 
@@ -15,13 +15,14 @@ const Price = ({ price, id, options }: Props) => {
 
   useEffect(() => {
     setTotalPrice(
-      totalQuantity * (options ? price + options[selectedItems].additionalPrice : price)
+      totalQuantity *
+        (options ? price + options[selectedItems].additionalPrice : price)
     );
   }, [totalQuantity, selectedItems, options, price]);
 
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl font-bold">${totalPrice.toFixed(2)}</h2>
+      <h2 className="text-2xl font-bold">${totalPrice}</h2>
       {/* OPTIONS CONTAINER */}
       <div className="flex gap-4">
         {options?.map((option, index) => (
@@ -29,7 +30,8 @@ const Price = ({ price, id, options }: Props) => {
             key={option.title}
             className="min-w-[6rem] p-2 ring-1 ring-red-400 rounded-md"
             style={{
-              background: selectedItems === index ? "rgb(248 113 113)" : "white",
+              background:
+                selectedItems === index ? "rgb(248 113 113)" : "white",
               color: selectedItems === index ? "white" : "red",
             }}
             onClick={() => setSelectedItems(index)}
@@ -45,13 +47,17 @@ const Price = ({ price, id, options }: Props) => {
           <span>Quantity</span>
           <div className="flex gap-4 items-center">
             <button
-              onClick={() => setTotalQuantity((prev) => (prev > 1 ? prev - 1 : 1))}
+              onClick={() =>
+                setTotalQuantity((prev) => (prev > 1 ? prev - 1 : 1))
+              }
             >
               {"<"}
             </button>
             <span>{totalQuantity}</span>
             <button
-              onClick={() => setTotalQuantity((prev) => (prev < 9 ? prev + 1 : 9))}
+              onClick={() =>
+                setTotalQuantity((prev) => (prev < 9 ? prev + 1 : 9))
+              }
             >
               {">"}
             </button>
