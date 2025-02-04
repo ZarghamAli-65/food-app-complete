@@ -29,10 +29,11 @@ export const POST = async (req: NextRequest) => {
         });
         return new NextResponse(JSON.stringify(product), { status: 201 });
     } catch (err) {
-        console.log(err);
+        console.log(err)
         return new NextResponse(
             JSON.stringify({ message: "Something went wrong!" }),
             { status: 500 }
         );
     }
 };
+

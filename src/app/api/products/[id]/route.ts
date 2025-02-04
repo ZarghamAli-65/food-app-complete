@@ -29,7 +29,7 @@ export const GET = async (
 }
 
 //Delete Single Product
-export const DELete = async (
+export const DELETE = async (
     req: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) => {
