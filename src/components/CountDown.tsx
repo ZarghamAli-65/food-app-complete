@@ -16,7 +16,7 @@ const renderer: CountdownRendererFn = ({
 }) => {
   if (completed) {
     // Render when the countdown is complete
-    return <span className="text-green-500">Time's up!</span>;
+    return <span className="text-green-500">Time &apos; s up</span>;
   } else {
     // Render the countdown
     return (

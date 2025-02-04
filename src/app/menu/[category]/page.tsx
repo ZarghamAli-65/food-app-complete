@@ -19,7 +19,7 @@ const getData = async (category: string) => {
 };
 
 type Props = {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 };
 
 const CategoryPage = async ({ params }: Props) => {

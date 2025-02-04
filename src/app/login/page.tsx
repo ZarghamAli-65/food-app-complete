@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import React from "react";
 
 const LoginPage = () => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   // Redirect if user is authenticated
