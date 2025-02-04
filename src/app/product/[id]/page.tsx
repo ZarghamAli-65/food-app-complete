@@ -3,9 +3,10 @@ import React from "react";
 import Price from "@/components/Price";
 import { ProductType } from "@/types/types";
 import DeleteButton from "@/components/DeleteButton";
+import { absoluteUrl } from "@/utils/url";
 
 const getData = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+  const res = await fetch(absoluteUrl(`/api/products/${id}`), {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch data");

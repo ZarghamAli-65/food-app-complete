@@ -1,9 +1,10 @@
 import { ProductType } from "@/types/types";
+import { absoluteUrl } from "@/utils/url";
 import Image from "next/image";
 import React from "react";
 
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/products", {
+  const res = await fetch(absoluteUrl("/api/products"), {
     cache: "no-store",
   });
 

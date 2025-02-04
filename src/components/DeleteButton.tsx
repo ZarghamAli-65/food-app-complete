@@ -1,5 +1,6 @@
 "use client";
 
+import { absoluteUrl } from "@/utils/url";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // For App Router, use `next/navigation`
@@ -21,7 +22,7 @@ const DeleteButton = ({ id }: { id: string }) => {
 
   const handleDelete = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+      const res = await fetch(absoluteUrl(`/api/products/${id}`), {
         method: "DELETE",
       });
 

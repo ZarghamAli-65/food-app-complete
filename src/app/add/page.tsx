@@ -1,5 +1,6 @@
 "use client";
 
+import { absoluteUrl } from "@/utils/url";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -59,7 +60,7 @@ const AddPage = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/api/products", {
+      const res = await fetch(absoluteUrl("/api/products"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

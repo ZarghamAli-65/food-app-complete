@@ -1,15 +1,13 @@
 import { ProductType } from "@/types/types";
+import { absoluteUrl } from "@/utils/url";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const getData = async (category: string) => {
-  const res = await fetch(
-    `http://localhost:3000/api/products?cat=${category}`,
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(absoluteUrl(`api/products?cat=${category}`), {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed!");
