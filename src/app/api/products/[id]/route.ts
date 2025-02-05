@@ -42,6 +42,7 @@ export const DELETE = async (
 
         try {
             await prisma.product.delete({
+
                 where: {
                     id: id
                 },

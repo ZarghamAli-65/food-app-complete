@@ -3,7 +3,7 @@
 import { absoluteUrl } from "@/utils/url";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Inputs = {
   title: string;
@@ -35,14 +35,15 @@ const AddPage = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    if (status === "unauthenticated" || !session?.user.isAdmin) {
+      router.push("/");
+    }
+  }, [status, session, router]);
+
   if (status === "loading") {
     return <p>Loading...</p>;
   }
-
-  if (status === "unauthenticated" || !session?.user.isAdmin) {
-    router.push("/");
-  }
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -62,6 +63,7 @@ const AddPage = () => {
     try {
       const res = await fetch(absoluteUrl("/api/products"), {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
@@ -147,6 +149,7 @@ const AddPage = () => {
                 e.preventDefault();
 
                 setOptions((prev) => [...prev, option]);
+                setOption({ title: "", additionalPrice: 0 });
               }}
             >
               Add Option
