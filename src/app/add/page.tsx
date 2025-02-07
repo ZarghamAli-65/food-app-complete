@@ -143,8 +143,8 @@ const AddPage = () => {
               name="additionalPrice"
               onChange={changeOption}
             />
-            <button
-              className="bg-gray-500 p-2 text-white"
+            <div
+              className="bg-gray-500 p-2 text-white cursor-pointer rounded-md"
               onClick={(e) => {
                 e.preventDefault();
 
@@ -153,7 +153,7 @@ const AddPage = () => {
               }}
             >
               Add Option
-            </button>
+            </div>
           </div>
           <div className="flex flex-wrap gap-4 mt-2">
             {options.map((opt) => (
