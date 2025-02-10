@@ -10,7 +10,7 @@ const AddressForm = () => {
         options={{ mode: "shipping" }}
         onChange={(event) => {
           if (event.complete) {
-            const address = event.value.address;
+            // const address = event.value.address;
           }
         }}
       />

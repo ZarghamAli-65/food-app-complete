@@ -1,6 +1,5 @@
 "use client";
 import { useCartStore } from "@/utils/store";
-import { stat } from "fs";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
